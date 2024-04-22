@@ -19,30 +19,32 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #fde131; /* Color amarillo del aviso */
-            color: black;
+            color: #525f7f; /* Color de texto oscuro para contraste */
             text-align: center;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            z-index: 1000; /* Asegura que el aviso esté por encima de otros elementos */
-            display: none; /* Inicialmente oculto */
+            border-radius: 10px; /* Bordes redondeados para más elegancia */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
+            z-index: 1000;
+            display: none;
+            width: 80%; /* Ancho relativo para mejor visualización en móviles */
+            max-width: 500px; /* Máximo ancho para grandes pantallas */
         }
         stripe-pricing-table {
-            width: 100%; /* Ocupa todo el ancho disponible */
-            overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+            width: 100%;
+            overflow-x: auto;
         }
         @media (max-width: 600px) {
             stripe-pricing-table {
-                font-size: 14px; /* Reduce el tamaño de la fuente para dispositivos móviles */
+                font-size: 14px;
             }
         }
         .boton-atras {
-            background-color: #fde131; /* Color amarillo del botón */
-            color: black; /* Texto en color negro */
+            background-color: #fde131;
+            color: black;
             padding: 10px 20px;
             text-decoration: none;
             position: fixed;
-            bottom: 20px; /* Posición fija en la parte inferior */
+            bottom: 20px;
             right: 20px;
             border-radius: 5px;
             font-weight: bold;
@@ -52,11 +54,16 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var alertBox = document.getElementById('alert-box');
-            alertBox.style.display = 'block'; // Muestra el aviso al cargar la página
+            alertBox.style.display = 'block';
 
-            document.addEventListener('click', function() {
-                alertBox.style.display = 'none'; // Oculta el aviso cuando el usuario hace clic en cualquier parte
-            });
+            // Función para ocultar el aviso cuando se detecte un clic o desplazamiento
+            function hideAlert() {
+                alertBox.style.display = 'none';
+            }
+
+            // Eventos para ocultar el aviso
+            document.addEventListener('click', hideAlert);
+            document.addEventListener('touchmove', hideAlert); // Para desplazamientos en dispositivos táctiles
         });
     </script>
 </head>
