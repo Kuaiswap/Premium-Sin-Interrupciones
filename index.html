@@ -18,16 +18,23 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #fde131; /* Color amarillo del aviso */
+            background-color: rgba(253, 225, 49, 0.9); /* Color amarillo semi-transparente */
             color: #525f7f; /* Color de texto oscuro para contraste */
             text-align: center;
             padding: 20px;
+            padding-top: 30px; /* Espacio extra para la 'X' */
             border-radius: 10px; /* Bordes redondeados para más elegancia */
             box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Sombra para dar profundidad */
             z-index: 1000;
-            display: none;
             width: 80%; /* Ancho relativo para mejor visualización en móviles */
             max-width: 500px; /* Máximo ancho para grandes pantallas */
+        }
+        #close-alert {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
         }
         stripe-pricing-table {
             width: 100%;
@@ -69,6 +76,7 @@
 </head>
 <body>
     <div id="alert-box">
+        <div id="close-alert">X</div>
         Importante: La suscripción de Spotify Premium por 12 meses es para una cuenta individual nueva, no una invitación a un grupo familiar.
     </div>
     <stripe-pricing-table pricing-table-id="prctbl_1P8QmFCKBPdbXEK1MG5vsAkh"
