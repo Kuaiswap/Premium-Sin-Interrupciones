@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios con Stripe</title>
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            border: 10px solid #fde131; /* Color amarillo para los bordes */
+        }
+        .alert-box {
+            background-color: #fde131; /* Color amarillo del aviso */
+            color: black;
+            text-align: center;
+            padding: 15px;
+            font-size: 16px;
+            border-bottom: 1px solid black; /* Añade un borde al final del aviso */
+        }
+        stripe-pricing-table {
+            width: 100%; /* Ocupa todo el ancho disponible */
+            overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+        }
+        @media (max-width: 600px) {
+            stripe-pricing-table {
+                font-size: 14px; /* Reduce el tamaño de la fuente para dispositivos móviles */
+            }
+        }
+        .boton-atras {
+            background-color: #fde131; /* Color amarillo del botón */
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert-box">
+        Importante: La suscripción de Spotify Premium por 12 meses es para una cuenta individual nueva, con usuario y contraseña propios, no una invitación a un grupo familiar.
+    </div>
+    <stripe-pricing-table pricing-table-id="prctbl_1P8QmFCKBPdbXEK1MG5vsAkh"
+                           publishable-key="pk_live_51JuFsECKBPdbXEK1gDmpya1L7DquBfcQSUuLgvQ0E79uKQ2ckPrryORDOS1uKlukgoK3cz50yzbpMwmQ7Nte9CsJ00OxARLwKE">
+    </stripe-pricing-table>
+    <a href="https://linktr.ee/cheapclick.entretenimiento.ao" class="boton-atras">Volver Atrás</a>
+</body>
+</html>
