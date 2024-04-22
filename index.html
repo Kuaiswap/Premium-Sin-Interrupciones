@@ -10,15 +10,22 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-color: #525f7f; /* Color de fondo oscuro */
             border: 10px solid #fde131; /* Color amarillo para los bordes */
         }
-        .alert-box {
+        #alert-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: #fde131; /* Color amarillo del aviso */
             color: black;
             text-align: center;
-            padding: 15px;
-            font-size: 16px;
-            border-bottom: 1px solid black; /* Añade un borde al final del aviso */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            z-index: 1000; /* Asegura que el aviso esté por encima de otros elementos */
+            display: none; /* Inicialmente oculto */
         }
         stripe-pricing-table {
             width: 100%; /* Ocupa todo el ancho disponible */
@@ -31,21 +38,31 @@
         }
         .boton-atras {
             background-color: #fde131; /* Color amarillo del botón */
-            color: black;
+            color: black; /* Texto en color negro */
             padding: 10px 20px;
             text-decoration: none;
             position: fixed;
-            bottom: 20px;
+            bottom: 20px; /* Posición fija en la parte inferior */
             right: 20px;
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var alertBox = document.getElementById('alert-box');
+            alertBox.style.display = 'block'; // Muestra el aviso al cargar la página
+
+            document.addEventListener('click', function() {
+                alertBox.style.display = 'none'; // Oculta el aviso cuando el usuario hace clic en cualquier parte
+            });
+        });
+    </script>
 </head>
 <body>
-    <div class="alert-box">
-        Importante: La suscripción de Spotify Premium por 12 meses es para una cuenta individual nueva, con usuario y contraseña propios, no una invitación a un grupo familiar.
+    <div id="alert-box">
+        Importante: La suscripción de Spotify Premium por 12 meses es para una cuenta individual nueva, no una invitación a un grupo familiar.
     </div>
     <stripe-pricing-table pricing-table-id="prctbl_1P8QmFCKBPdbXEK1MG5vsAkh"
                            publishable-key="pk_live_51JuFsECKBPdbXEK1gDmpya1L7DquBfcQSUuLgvQ0E79uKQ2ckPrryORDOS1uKlukgoK3cz50yzbpMwmQ7Nte9CsJ00OxARLwKE">
